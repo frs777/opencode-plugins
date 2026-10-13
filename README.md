@@ -213,8 +213,6 @@ opencode plugin install /path/to/plugin.zip
 
 **4 plugins have restrictive licenses** (not open source): empire-llm-codex, mcp-boundary, plugin-creator-plus, servotab.
 
-**77 plugins without licenses** are excluded from this repository (see `nolic/` folder locally).
-
 ---
 
 ## License
