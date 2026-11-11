@@ -1,6 +1,6 @@
 # OpenCode Plugins
 
-Collection of **128 OpenCode V2 plugins** with verified licenses.
+Collection of **136 OpenCode V2 plugins** with verified licenses.
 
 > ⚠️ **Most plugins are converted from Codex/ChatGPT plugins** using automated tools (`gpt_to_oc`, `convert-full`, etc.). A few are original works by the repository owner.
 
@@ -19,7 +19,7 @@ Collection of **128 OpenCode V2 plugins** with verified licenses.
 
 ---
 
-## Plugins (128)
+## Plugins (136)
 
 | Plugin | License | Source / Notes |
 |--------|---------|----------------|
@@ -70,6 +70,7 @@ Collection of **128 OpenCode V2 plugins** with verified licenses.
 | devrecap | MIT | Codex cache (original) |
 | documents | Other | Codex cache (original) |
 | duende-skills | MIT | Codex cache (original) |
+| dyrygent-1.0.2 | MIT | **Original** (author: frs777) |
 | empire-llm-codex | Other | Codex cache (restrictive) |
 | engineering-project-os | MIT | Codex cache (original) |
 | engineering-suite | MIT | Codex cache (original) |
@@ -101,7 +102,6 @@ Collection of **128 OpenCode V2 plugins** with verified licenses.
 | engineering-suite-web-mockup | MIT | Codex cache (original) |
 | fallow | MIT | GitHub: fallow-rs/fallow-skills |
 | figma | MIT | GitHub: figma/community-resources |
-| find-0.1.0 | Apache-2.0 | **Original** (author: frs777) |
 | flower | Apache-2.0 | Codex cache (original) |
 | frontend-design-premium | Apache-2.0 | Codex cache (original) |
 | get-fable | Apache-2.0 | Codex cache (original) |
@@ -117,8 +117,10 @@ Collection of **128 OpenCode V2 plugins** with verified licenses.
 | nightshift | MIT | Codex cache (original) |
 | opencode-agent-orchestrator-1.0.0 | Apache-2.0 | **Original** (author: frs777) |
 | opencode-bacup-1.0.0 | Apache-2.0 | **Original** (author: frs777) |
+| opencode-find-0.1.1 | Apache-2.0 | **Original** (author: frs777) |
 | opencode-mcp-manager-1.0.0 | Apache-2.0 | **Original** (author: frs777) |
 | opencode-plugin-bridge-1.0.0 | Apache-2.0 | **Original** (author: frs777) |
+| opencode-plugin-builder-1.0.0 | Apache-2.0 | **Original** (author: frs777) |
 | opencode-plugin-converter-build | MIT | **Original** (author: frs777) |
 | opencode-specialist-1.0.0 | Apache-2.0 | **Original** (author: frs777) |
 | opstruth | MIT | Codex cache (original) |
@@ -172,8 +174,10 @@ Collection of **128 OpenCode V2 plugins** with verified licenses.
 | opencode-specialist-1.0.0 | Apache-2.0 | Specialist agent for OpenCode |
 | opencode-bacup-1.0.0 | Apache-2.0 | Backup utility |
 | opencode-plugin-converter-build | Apache-2.0 | Plugin converter builder |
+| opencode-plugin-builder-1.0.0 | Apache-2.0 | Plugin builder for OpenCode V2 |
 | backup-1.3.0-update | Apache-2.0 | Backup update utility |
-| find-0.1.0 | Apache-2.0 | Find utility |
+| dyrygent-1.0.2 | MIT | Multi-agent orchestrator: decomposes a goal, routes elements to specialised subagents, runs independent elements in parallel |
+| opencode-find-0.1.1 | Apache-2.0 | Skill/plugin/command/MCP index with local search |
 
 ---
 
@@ -209,7 +213,7 @@ opencode plugin install /path/to/plugin.zip
 - Upstream GitHub repositories
 - Plugin metadata
 
-**8 plugins are original works** by the repository owner (frs777), licensed under Apache-2.0.
+**10 plugins are original works** by the repository owner (frs777), licensed under Apache-2.0 (dyrygent-1.0.2: MIT).
 
 **4 plugins have restrictive licenses** (not open source): empire-llm-codex, mcp-boundary, plugin-creator-plus, servotab.
 
