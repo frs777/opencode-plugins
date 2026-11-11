@@ -1,0 +1,95 @@
+name: Test instalatorów Dyrygenta
+
+on:
+  push:
+    paths:
+      - "dyrygent-*.zip"
+      - ".github/workflows/test-installers.yml"
+  pull_request:
+    paths:
+      - "dyrygent-*.zip"
+      - ".github/workflows/test-installers.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  installers:
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rozpakuj najnowsze archiwum
+        shell: bash
+        run: |
+          set -euo pipefail
+          ZIP=$(ls dyrygent-*.zip | sort -V | tail -1)
+          echo "Testowany plik: $ZIP"
+          PY=$(command -v python3 || command -v python)
+          "$PY" - "$ZIP" <<'PYEOF'
+          import sys, zipfile
+          zipfile.ZipFile(sys.argv[1]).extractall("pkg")
+          PYEOF
+          ls pkg
+
+      - name: install.bat (Windows)
+        if: runner.os == 'Windows'
+        shell: cmd
+        env:
+          OPENCODE_CONFIG: ${{ github.workspace }}\dest-bat
+        run: pkg\install.bat
+
+      - name: install.sh (macOS / Linux)
+        if: runner.os != 'Windows'
+        shell: bash
+        env:
+          OPENCODE_CONFIG: ${{ github.workspace }}/dest-sh
+        run: |
+          set -euo pipefail
+          chmod +x pkg/install.sh
+          ./pkg/install.sh
+
+      - name: install.py + idempotencja
+        shell: bash
+        run: |
+          set -euo pipefail
+          PY=$(command -v python3 || command -v python)
+          "$PY" pkg/install.py --dry-run --dest dest-py
+          "$PY" pkg/install.py --dest dest-py
+          echo "--- drugi przebieg (powinien być bez zmian) ---"
+          OUT=$("$PY" pkg/install.py --dest dest-py)
+          echo "$OUT"
+          echo "$OUT" | grep -qE "Wszystko już aktualne|bez zmian"
+          if [ -d dest-py/.backup-dyrygent-* ]; then
+            echo "BŁĄD: backup powstał mimo braku zmian"
+            exit 1
+          fi
+
+      - name: Weryfikacja plików
+        shell: bash
+        run: |
+          set -euo pipefail
+          FILES="agents/dyrygent.md agents/dyr-code.md agents/dyr-index.md agents/dyr-mech.md agents/dyr-review.md skills/dyrygent/SKILL.md commands/dyrygent.md"
+          for d in dest-bat dest-sh dest-py; do
+            if [ ! -d "$d" ]; then
+              echo "POMINIĘTO $d (instalator nieaktywny na tym systemie)"
+              continue
+            fi
+            n=0
+            for f in $FILES; do
+              [ -f "$d/$f" ] || { echo "BŁĄD: brak $d/$f"; exit 1; }
+              n=$((n+1))
+            done
+            echo "OK  $d: $n/7 plików"
+            grep -q "^description:" "$d/agents/dyrygent.md"
+            grep -q "mode: primary" "$d/agents/dyrygent.md"
+            grep -q "^name: dyrygent" "$d/skills/dyrygent/SKILL.md"
+          done
+          echo "Wszystkie instalatory działają."
