@@ -10,12 +10,12 @@ Collection of **136 OpenCode V2 plugins** with verified licenses.
 
 | License | Count | Notes |
 |---------|-------|-------|
-| MIT | ~75 | Majority (engineering-suite, mattpocock-skills, agent-*, etc.) |
-| Apache-2.0 | ~25 | vercel, hugging-face, convex, runpod, cloudflare, ai-devkit, etc. |
+| MIT | 97 | Majority (engineering-suite, mattpocock-skills, agent-*, etc.) |
+| Apache-2.0 | 32 | vercel, hugging-face, convex, runpod, cloudflare, ai-devkit, etc. |
 | BSD-3-Clause | 1 | tailscale |
 | GPL-3.0 | 1 | repo-scout |
-| Other (restrictive) | 4 | empire-llm-codex, mcp-boundary, plugin-creator-plus, servotab |
-| **Total** | **128** | All with LICENSE file inside ZIP |
+| Other (restrictive) | 5 | data-analytics, documents, intuitive-software-design, mcp-boundary, servotab |
+| **Total** | **136** | All with LICENSE file inside ZIP |
 
 ---
 
@@ -71,7 +71,6 @@ Collection of **136 OpenCode V2 plugins** with verified licenses.
 | documents | Other | Codex cache (original) |
 | duende-skills | MIT | Codex cache (original) |
 | dyrygent-1.0.2 | MIT | **Original** (author: frs777) |
-| empire-llm-codex | Source-Available | **Not distributed** - kept in nolic/, redistribution forbidden |
 | engineering-project-os | MIT | Codex cache (original) |
 | engineering-suite | MIT | Codex cache (original) |
 | engineering-suite-ask-matt | MIT | Codex cache (original) |
@@ -125,7 +124,6 @@ Collection of **136 OpenCode V2 plugins** with verified licenses.
 | opencode-specialist-1.0.0 | Apache-2.0 | **Original** (author: frs777) |
 | opstruth | MIT | Codex cache (original) |
 | pdf | MIT | GitHub: warren2008-2020-spec/codex-office-skills |
-| plugin-creator-plus | All rights reserved | **Not distributed** - kept in nolic/, redistribution forbidden |
 | presentations | MIT | GitHub: warren2008-2020-spec/codex-office-skills |
 | product-idea-pack | Apache-2.0 | Codex cache (original) |
 | pstack-plugin | MIT | Codex cache (original) |
@@ -161,22 +159,6 @@ Collection of **136 OpenCode V2 plugins** with verified licenses.
 | webmcp-enable | MIT | GitHub: nekuda-ai/webmcp-kit |
 | work-pets | MIT | GitHub: waybarrios/opencode-power-pack |
 | zuora-coding-agent | MIT | Codex cache (original) |
-
----
-
-## Not Distributed (redistribution not permitted)
-
-Two plugins are listed in the table above but their archives are **not** published in this
-repository. Their licenses forbid redistribution, so they are kept locally in the nolic/
-directory, which is excluded via .gitignore:
-
-| Plugin | License | Reason |
-|--------|---------|--------|
-| empire-llm-codex | Empire Source-Available License (Web5 Labs LLC) | private-beta use only, no redistribution |
-| plugin-creator-plus | All rights reserved (Shenyang Neon Star Bridge Studio) | redistribution requires written permission |
-
-If you obtained either archive elsewhere, install it locally - this repository will not
-host it.
 
 ---
 
@@ -231,7 +213,7 @@ opencode plugin install /path/to/plugin.zip
 
 **10 plugins are original works** by the repository owner (frs777), licensed under Apache-2.0 (dyrygent-1.0.2: MIT).
 
-**4 plugins have restrictive licenses** (not open source): empire-llm-codex, mcp-boundary, plugin-creator-plus, servotab. Two of them - empire-llm-codex and plugin-creator-plus - are not distributed here; see Not Distributed.
+**5 plugins have restrictive or non-standard licenses** (not open source): data-analytics, documents, intuitive-software-design, mcp-boundary, servotab. Check the LICENSE file inside each ZIP before redistribution.
 
 ---
 
